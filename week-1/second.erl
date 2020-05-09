@@ -1,4 +1,4 @@
-% Excercise 1.9
+% Exercise 1.9
 -module(second).
 -export([hypotenuse/2, permiter/2, area/2]).
 
