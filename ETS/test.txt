@@ -1,0 +1,14 @@
+supplier_code,order_num,notes,delivery_date,sku,requested_quantity
+delivery_date sku requested_quantity
+pehuen_supplier_1_id_number FIRST SalesOrder-20191217 test text demo text 2019-12-17 10:00:00 pehuen_product_none_4_sku 60
+pehuen_supplier_1_id_number SECOND SalesOrder-20191217 test text,demo text,2019-12-17 10:00:00,pehuen_product_none_3_sku,48
+pehuen_supplier_1_id_number,SECOND SalesOrder-20191217 test text,demo text,2019-12-17 10:00:00,pehuen_product_none_1_sku,3
+pehuen_supplier_1_id_number FIRST SalesOrder-20191217 test text demo text 2019-12-17 10:00:00 pehuen_product_none_4_sku 60
+pehuen_supplier_1_id_number SECOND SalesOrder-20191217 test text,demo text,2019-12-17 10:00:00,pehuen_product_none_3_sku,48
+pehuen_supplier_1_id_number,SECOND SalesOrder-20191217 test text,demo text,2019-12-17 10:00:00,pehuen_product_none_1_sku,3
+pehuen_supplier_1_id_number FIRST SalesOrder-20191217 test text demo text 2019-12-17 10:00:00 pehuen_product_none_4_sku 60
+pehuen_supplier_1_id_number SECOND SalesOrder-20191217 test text,demo text,2019-12-17 10:00:00,pehuen_product_none_3_sku,48
+pehuen_supplier_1_id_number,SECOND SalesOrder-20191217 test text,demo text,2019-12-17 10:00:00,pehuen_product_none_1_sku,3
+pehuen_supplier_1_id_number FIRST SalesOrder-20191217 test text demo text 2019-12-17 10:00:00 pehuen_product_none_4_sku 60
+pehuen_supplier_1_id_number SECOND SalesOrder-20191217 test text,demo text,2019-12-17 10:00:00,pehuen_product_none_3_sku,48
+pehuen_supplier_1_id_number,SECOND SalesOrder-20191217 test text,demo text,2019-12-17 10:00:00,pehuen_product_none_1_sku,3
