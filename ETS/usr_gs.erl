@@ -3,7 +3,7 @@
 
 -module(usr_gs).
 -export([start_link/0, start_link/1, stop/0]).
--export([init/1, terminate/2, handle_call/3, handle_cast/2]).
+-export([init/1, terminate/2, handle_call/3, handle_cast/2, handle_info/2]).
 -export([add_usr/3, delete_usr/1, set_service/3, set_status/2,
          delete_disabled/0, lookup_id/1]).
 -export([lookup_msisdn/1, service_flag/2]).
@@ -18,14 +18,21 @@ start_link() ->
   start_link("usrDb").
 
 start_link(FileName) ->
+  % (Name, Mod, Arguments, Opts)
+  % Name has the format {local, Name} | {global, Name}
+  % Will call init(Arguments). In this case FileName
   gen_server:start_link({local, ?MODULE}, ?MODULE, FileName, []).
 
 stop() ->
+  % Use cast(Name, Msg) to send sync message to your server
+  % handle_cast must produce {noreply, NewLoopData} | {stop, Reason, NewLoopData}
   gen_server:cast(?MODULE, stop).
 
 %% Customer Service API
 
 add_usr(PhoneNum, CustId, Plan) when Plan==prepay; Plan==postpay ->
+  % Use call(Name, Msg) to send sync message to your server
+  % handle_call must produce {reply, Reply, NewLoopData} | {stop, Reason, Reply, NewLoopData}
   gen_server:call(?MODULE, {add_usr, PhoneNum, CustId, Plan}).
 
 delete_usr(CustId) ->
@@ -66,6 +73,9 @@ init(FileName) ->
   {ok, null}.
 
 terminate(_Reason, _LoopData) ->
+  % Called when stop construct is received from callbacks, except init
+  % and abnormal process termination + trapping exits.
+  % Its return value is ignored
   usr_db:close_tables().
 
 handle_cast(stop, LoopData) ->
@@ -106,3 +116,7 @@ handle_call({set_status, CustId, Status}, _From, LoopData) ->
 
 handle_call(delete_disabled, _From, LoopData) ->
   {reply, usr_db:delete_disabled(), LoopData}.
+
+% Shouldn't exist to avoid deffensive programming
+handle_info(_Msg, LoopData) ->
+  {noreply, LoopData}.
