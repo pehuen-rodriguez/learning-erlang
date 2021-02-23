@@ -74,6 +74,7 @@ reply({From, Ref}, Reply) ->
   From ! {reply, Ref, Reply}.
 
 %% Interal Server functions
+
 init(FileName, Pid) ->
   usr_db:create_tables(FileName),
   usr_db:restore_backup(),
